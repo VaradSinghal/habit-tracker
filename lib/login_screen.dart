@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'habit_tracker_screen.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,14 +13,26 @@ class _LoginScreenState extends State<LoginScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  // Default credentials
+
   final String defaultUsername = 'testuser';
   final String defaultPassword = 'password123';
 
-  void _login() {
+ void _login() {
     // The login logic goes here
     print("login logic here");
-  }
+
+    final username = _usernameController.text;
+    final password = _passwordController.text;
+
+    if (username == defaultUsername && password == defaultPassword) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HabitTrackerScreen(username: username),
+        ),
+      );
+    }
+}
 
   @override
   Widget build(BuildContext context) {
