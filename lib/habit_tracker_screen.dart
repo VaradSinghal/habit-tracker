@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'notificatons_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -141,6 +141,14 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
             ListTile(
               leading: Icon(Icons.notifications),
               title: Text('Notifications'),
+              onTap: () {
+    Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => NotificationsScreen()),
+    );
+  },
             ),
 ListTile(
   leading: const Icon(Icons.logout),
